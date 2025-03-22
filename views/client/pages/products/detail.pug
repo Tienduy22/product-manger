@@ -1,0 +1,40 @@
+extends ../../layout/default.pug
+
+block main 
+    .container
+        .row
+            .col-md-8.offset-md-2
+                .card
+                    .card-header
+                        if(product.title)
+                            h2(class="mb-4") #{product.title}
+
+                    .card-body
+                        if(product.thumbnail)
+                            .text-center.mb-4
+                                img(
+                                    src=product.thumbnail
+                                    class="img-thumbnail"
+                                    style="width: 200px"
+                                )
+
+                        if(product.price)
+                            h4(class="mb-4") Giá: <b>#{product.price} VND</b>
+
+                        if(product.discountPercentage)
+                            h4(class="mb-4") Giảm giá: <b>#{product.discountPercentage}%</b>
+
+                        if(product.stock)
+                            h4(class="mb-4") Còn lại: <b>#{product.stock}</b>
+
+                        if(product.position)
+                            h4(class="mb-4") Vị trí: <b>#{product.position}</b>
+
+                        if(product.description)
+                            h4(class="mb-4") #{product.description}
+
+                        .text-center
+                            a(
+                                href=`${prefixAdmin}/products/edit/${product.id}`
+                                class="btn btn-warning"
+                            ) Chỉnh sửa
