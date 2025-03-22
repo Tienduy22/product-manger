@@ -22,7 +22,6 @@ const flash = require("express-flash");
 database.connect();
 
 const app = express();
-const port = 3000;
 
 app.use(methodOverride("_method"))
 app.use(bodyParser.urlencoded({extended: false}));
@@ -40,7 +39,9 @@ app.use(express.static(`${__dirname}/public`));
 routeAdmin(app);
 route(app);
 
-app.listen(port , () => {
-    console.log(`App listening on port ${port}`);
+const PORT = process.env.PORT;
+
+app.listen(PORT , () => {
+    console.log(`App listening on port ${PORT}`);
 });
 
