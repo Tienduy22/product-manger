@@ -9,13 +9,13 @@ const session = require("express-session");
 
 const methodOverride = require("method-override");
 
-const database = require("./config/database");
+const database = require("./config/database.js");
 
 const systemConfig = require("./config/system.js");
 
-const route = require("./routes/client/index.route");
+const route = require("./routes/client/index.route.js");
 
-const routeAdmin = require("./routes/admin/index.route");
+const routeAdmin = require("./routes/admin/index.route.js");
 
 const flash = require("express-flash");
 
